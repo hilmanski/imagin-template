@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thumbnailed template</title>
+    <meta property="og:image"
+        content="https://thumbnailed-template.vercel.app/api?web=hilman.space&title=this%20is%20amazing%20technology" />
+    <meta name="twitter:image"
+        content="https://thumbnailed-template.vercel.app/api?web=hilman.space&title=this%20is%20amazing%20technology" />
+
+    <style>
+        *{ margin: 0px; padding: 0px;}
+        
+        #thumbnail{
+            box-sizing: border-box;
+            width: 500px;
+            height: 300px;
+            background: orange;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="thumbnail">
+        <h1></h1>
+    </div>
+
+    <script>
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+
+        //if need a check (urlParams.has('product'));
+        document.getElementsByTagName('h1')[0].innerText = urlParams.get('title')
+    </script>
+</body>
+</html>
