@@ -91,7 +91,12 @@
 
         function getTrimmedText(text) {
             const maxLength = 50 // maximum number of characters to extract
+            if(text.length <= maxLength) {
+                return text
+            }
+            
             let trimmedString = text.substr(0, maxLength);
+            console.log(trimmedString)
             return trimmedString.substr(0, Math.min(trimmedString.length, trimmedString.lastIndexOf(" ")))
         }
         
