@@ -43,21 +43,42 @@
             margin-bottom: 10px;
         }
 
+        #logo{
+            display: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50px;
+            margin-right: 10px;
+        }
+
         footer{
-            font-size: 14px;
             position: absolute;
-            border-top: 1px solid white;
             bottom: 20px;
+        }
+
+        #attribution{
+            font-size: 12px;
+            border-top: 1px solid white;
             padding-top: 5px;
+            margin-top: 5px;
+        }
+
+        .flex{
+            display: flex;
+            align-items: center;
         }
     </style>
 </head>
 <body>
     <div id="thumbnail">
-        <p id="web"></p>
         <h1 id='title'></h1>
+
         <footer>
-            Generated with imagin.link
+            <div class="flex">
+                <img id="logo">
+                <p id="web"></p>
+            </div>
+            <p id="attribution"> Generated with imagin.live</p>
         </footer>
     </div>
 
@@ -84,11 +105,16 @@
 
         if (urlParams.has('color')) {
             document.getElementById('thumbnail').style.color = `#${urlParams.get('color')}`
-            document.getElementsByTagName('footer')[0].style.borderColor = `#${urlParams.get('color')}`
+            document.getElementById('attribution').style.borderColor = `#${urlParams.get('color')}`
         }
 
         if (urlParams.has('bgimage')) {
             document.getElementById('thumbnail').style.backgroundImage = `url('${urlParams.get('bgimage')}')`
+        }
+
+        if (urlParams.has('logo')) {
+            document.getElementById('logo').style.display = 'block'
+            document.getElementById('logo').setAttribute('src', urlParams.get('logo'))
         }
     </script>
 </body>
