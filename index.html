@@ -28,23 +28,27 @@
             box-sizing: border-box;
             width: 500px;
             height: 300px;
-            padding: 30px 15px;
-            padding-top: 50px;
+            padding: 30px;
+            padding-top: 70px;
             background-repeat: no-repeat;
             background-size: cover;
         }
 
         #title{
-            font-size: 2.3rem;
+            font-size: 2.5rem;
         }
 
         #web{
             font-size: 16px;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
+            font-weight: bold;
         }
 
         #logo{
-            display: none;
+            visibility: hidden;
+            position: absolute;
+            right: 30px;
+            bottom: 30px;
             width: 40px;
             height: 40px;
             border-radius: 50px;
@@ -58,7 +62,7 @@
 
         #attribution{
             font-size: 12px;
-            border-top: 1px solid white;
+            border-top: 1px solid #333;
             padding-top: 5px;
             margin-top: 5px;
         }
@@ -67,17 +71,16 @@
             display: flex;
             align-items: center;
         }
+
     </style>
 </head>
 <body>
     <div id="thumbnail">
+        <img id="logo">
         <h1 id='title'></h1>
-
+        
         <footer>
-            <div class="flex">
-                <img id="logo">
-                <p id="web"></p>
-            </div>
+            <p id="web"></p>
             <p id="attribution"> Generated with imagin.live</p>
         </footer>
     </div>
@@ -118,8 +121,17 @@
         }
 
         if (urlParams.has('logo')) {
-            document.getElementById('logo').style.display = 'block'
+            document.getElementById('logo').style.visibility = 'visible'
             document.getElementById('logo').setAttribute('src', urlParams.get('logo'))
+        }
+
+         if (urlParams.has('fontfamily')) {
+            document.getElementById('title').style.fontFamily = urlParams.get('fontfamily')
+            document.getElementById('web').style.fontFamily = urlParams.get('fontfamily')
+        }
+
+        if (urlParams.has('align')) {
+            document.getElementById('title').style.textAlign = urlParams.get('align')
         }
     </script>
 </body>
