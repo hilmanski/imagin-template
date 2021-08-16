@@ -84,6 +84,7 @@
 
         if (urlParams.has('color')) {
             document.getElementById('thumbnail').style.color = `#${urlParams.get('color')}`
+            document.getElementsByTagName('footer')[0].style.borderColor = `#${urlParams.get('color')}`
         }
 
         if (urlParams.has('bgimage')) {
